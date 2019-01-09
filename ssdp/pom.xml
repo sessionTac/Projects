@@ -14,7 +14,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-	</properties>
+	</properties> 
 
 	<!-- lookup parent from repository -->
 	<parent>
@@ -52,6 +52,10 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-eureka-server</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-ribbon</artifactId>
+		</dependency>
 		<!-- SpringBoot -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -63,6 +67,11 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<optional>true</optional>
 		</dependency>
+		<!-- Mysql -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            </dependency>
 		<!-- PulgIn -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -70,7 +79,29 @@
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+			     <groupId>org.mybatis.generator</groupId>
+			     <artifactId>mybatis-generator-maven-plugin</artifactId>
+			     <version>1.3.2</version>
+			     <configuration>
+			         <configurationFile>src/main/resources/mybatis_generator/generatorConfig.xml</configurationFile>
+			         <verbose>true</verbose>
+			         <overwrite>true</overwrite>
+			     </configuration>
+			     <dependencies>
+			         <dependency>
+			             <groupId>org.mybatis.generator</groupId>
+			             <artifactId>mybatis-generator-core</artifactId>
+			             <version>1.3.2</version>
+			         </dependency>
+			     </dependencies>
+			</plugin>
+		</plugins>
+	</build>
   <modules>
     <module>ssdp_user</module>
+    <module>ssdp_core</module>
   </modules>
 </project>

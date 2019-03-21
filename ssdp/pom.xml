@@ -72,5 +72,6 @@
 	</dependencies>
   <modules>
     <module>ssdp_user</module>
+    <module>ssdp_product</module>
   </modules>
 </project>

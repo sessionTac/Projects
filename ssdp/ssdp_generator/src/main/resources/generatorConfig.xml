@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<context id="context1">
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		<plugin type="cn.ssdp.ssdp_generator.plugin.MysqlPagePlugin" />
+		<plugin type="cn.ssdp.ssdp_generator.plugin.LombokPlugin" />
+		<commentGenerator type="cn.ssdp.ssdp_generator.comment.MyCommentGenerator">
+		</commentGenerator>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/ssdp_user" userId="root"
+			password="123456">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<!--域模型层,生成的目标包,项目目标源文件 -->
+		<javaModelGenerator targetPackage="cn.ssdp.ssdp_user.entity"
+			targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<!--XML映射文件,生成的位置（目标包）,源代码文件夹 -->
+		<sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		<!--XML对应的Mapper类 -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="cn.ssdp.ssdp_user.dao" targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+
+		<table tableName="m_user_info" domainObjectName="MUserInfoEntity" 
+			enableCountByExample="false" enableSelectByExample="false" enableUpdateByExample="false" 
+			enableDeleteByExample="false">
+		</table>
+
+	</context>
+</generatorConfiguration>

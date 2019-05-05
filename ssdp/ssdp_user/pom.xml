@@ -21,5 +21,10 @@
       <artifactId>junit</artifactId>
       <scope>test</scope>
     </dependency>
+	<dependency>
+		<groupId>cn.ssdp</groupId>
+		<artifactId>ssdp_core</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
   </dependencies>
 </project>
